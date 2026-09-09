@@ -1,0 +1,79 @@
+
+:root {
+  --primary: #3b4550;
+  --primary-dark: #0a3d66;
+  --primary-hover: #0d5ba8;
+  --primary-light: #09f;
+  --background: #06182a;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --card-bg: #1e293b;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --input-bg: #1e293b;
+  --hsla-example: hsla(210, 100%, 56%, 1);
+}
+
+/* Header fixed */
+.headerfix {
+  font-family: monospace;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  top:0;
+  position:sticky;
+}
+
+.headerfix h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary)
+}
+
+.headerfix nav {
+  align-items:center;
+  gap: 1rem;
+  display: flex;
+
+  a{
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+    font-weight: 500;
+    &:hover, &:focus {
+      color: var(--primary);
+      outline: none;
+    }
+  }
+}
+/* FIN HEADER FIXED */
+
+body {
+  font-family: monospace;
+  margin:0;
+}
+
+main {
+  padding: 32px;
+}
+
+#progress {
+  position: fixed;
+  top: auto;
+  width:0%;
+  background: red;
+  height: 1em;
+
+  animation: progress-grow auto linear;
+  animation-timeline: scroll(root block);
+}
+
+@keyframes progress-grow {
+  from { width: 0% }
+  to { width: 100% }
+}

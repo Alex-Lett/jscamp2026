@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<!-- TUTORIAL COMPLETO
+    https://www.youtube.com/watch?v=mXpWhmJXV0o
+TUTORIAL HTML
+    https://www.youtube.com/watch?v=3nYLTiY5skU
+-->
+
+<!-- EL HTML ES EL QUE EMPIEZA LA PAGINA Y LA TERMINA -->
+<!-- EN MDN WEB DOCS ESTA TODO, INCLUYENDO LOS ROLE PARA LOS DIV -->
+<html lang="es">
+
+<!-- EL HEAD NO SALE EN LA PAGINA PERO SI AL BUSCAR COMO EN GOOGLE -->
+<head>
+    <title>Portfolio Ale - Desarrollador en proceso</title> <!-- APARECE EN LA PESTANA Y GOOGLE -->
+    <meta charset="UTF-8" >
+    <meta name="description" content="Alex es un programador fullstack en proceso y esta usando estas herramientas para aprender.">
+
+    <!-- OJO CON OPENGRAPH EN opengraph.xyz-->
+    <meta property="og:title" content="Portfolio de un ingenireo de software en proceso">
+    <meta property="og:description" content="Alex es un programador fullstack en proceso y esta usando estas herramientas para aprender.">
+    <meta property="og:image" content="./memillo.png">
+    <meta property="og:image:alt" content="Prueba de descripcion de la imagen.">
+    <!-- TAMBIEN BUSCAR EN OPENGRAPH -->
+
+    <!-- OTRO DE ESTOS... SEO -->
+    <link rel="alternate" href="" hreflang="en-GB"> <!-- EN ESTE CASO ES LA VERSION DE LA PAGINA PERO EN INGLES, EL VINCULO VA EN EL HREF REFERIDO -->
+    <link rel="canonical" href=""> <!-- INDICAR CUAL ES LA PAGINA ORIGINAL OG -->
+
+    <meta name="viewpoint" content="width=devide-width"> <!-- ALGO SOBRE COMO SE VE EN DISPOSITIVOS MOBILES -->
+    <meta name="robots" content="index, follow"> <!-- METADATO ESPECIFICO, AUN NI IDEA DE PARA QUE -->
+    <meta name="theme-color" content="#09f"> <!-- METADATOS ESPECIFICOS, COMO PARA SAFARI EN ESTE CASO, #09F ES AZUL-->
+
+    <link rel="stylesheet" href="./styles.css" /> <!-- ESTE ES EL CSS QUE TENGO EN LA CARPETA CON LOS DATOS DE DISENO -->
+    <link rel="icon" type="image/png" href="./memillo.png"> <!-- RECORDAR QUE EL HEAD NO ES DE LA PAGINA, EN ESTE CASO ES EL ICONO QUE SALE EN LA PESTANA -->
+
+    <script type="module" src="./main.js"></script>
+
+    <!-- ACA TAMBIEN PUEDO PONER ESTILOS BASICOS PERO MEJOR CON CSS, REVISAR -->
+</head>
+
+<!-- EL BODY AHORA SI ES LO QUE SALE EN LA PAGINA, DE INIO A FIN -->
+<!-- ANTES DE EMPEZAR... NO USAR div PARA TODO -->
+<body>
+
+<!-- EL HEADER AHORA SI ES LA PRIMERA SECCION DE LA PAGINA DE ARRIBA A ABAJO -->
+<header class="headerfix">
+    <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-code"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 8l-4 4l4 4" /><path d="M17 8l4 4l-4 4" /><path d="M14 4l-4 16" /></svg>
+        Portfolio - Ale
+    </h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="./empleos.html">Empleos</a>
+        <a href="https://github.com/Alex-Lett" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+
+    <div>
+        <a href="">Boton 1</a>
+    </div>
+</header>
+
+<!-- MAIN AHORA SERIA EL CUERPO PRINCIPAL EN TEORIA PERO EN CORTO ES LO QUE VA DESPUES DEL HEADER Y DONDE DEBE IR EL GRUESO DE LA PAGINA -->
+<!-- ICONOS EN TABLER.IO -->
+<main>
+    <section>
+        <img src="./anime-sky-4k-0f-2880x1800.jpg" 
+        width="200"/>
+        <h1>Projecto Numero 1: Armado de portfolio como primer proyecto</h1>
+        <p>Este es mi <strong>primer </strong>proyecto que <em>hago</em> en mi vida</p>
+        <form role="search">
+            <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" 
+            stroke-width="2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
+            </svg>
+
+            <input type="text" placeholder="Buscar mis proyectos que espero tener mas de uno">
+
+            <button type="summit">Buscar</button>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <h1>Paginas de Pruebas</h1>
+        <ul>
+            <details open>
+                <summary>Pagina de prueba 1: Prueba de Flexbox en CSS</summary>
+                <a href="../01--css/indextestflexbox.html" rel="noreferrer">Pagina Flexbox 1.</a>
+            </details>
+            <details open>
+                <summary>Pagina de prueba 2: Prueba de Grid en CSS</summary>
+                <a href="../01--css/indextestgrid.html">Pagina Test Flex.</a>
+                <a href="../01--css/indextestgrid2.html">Pagina Test Grid.</a>
+                <a href="../01--css/indextestgrid3.html">Pagina Test Layout</a>
+                <a href="../01--css/indextestgrid4.html">Pagina Test Animation.</a>
+                <a href="../01--css/indextestgrid5.html">Pagina Test Animation - Scroll</a>
+            </details>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Memillo.</h1>
+        <a download href="./memillo.png">
+           <img
+           loding="lazy"
+           aspect-ratio: 270/257;"
+           id="photo-image"
+           title="memillo123"
+           alt="un memillo pra distender"
+           src="./memillo.png">
+         </a>
+    </section>
+<!-- ABAJO DE LOADING HABIA UN style="width:100%" PERO AHORA LO TENGO EN EL ARCHIVO CSS -->
+
+    <section>
+        <header>
+            <h2 id="Proyectos">Proyectos</h2>
+            <p>Aca estaran todos los proyectos que en teoria voy a hacer.</p>
+        </header>
+        <footer>
+            <article>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                stroke="currentColor" 
+                stroke-width="1" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 9a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -9" />
+                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                <path d="M12 12l0 .01" />
+                <path d="M3 13a20 20 0 0 0 18 0" />
+                </svg>
+
+                <h3>Portfolio (WIP)</h3>
+                <p>Mi primer proyecto consiste en la elaboracion de mi actual portfolio.</p>
+            </article>
+
+            <article>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                stroke="currentColor" 
+                stroke-width="1" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="icon icon-tabler icons-tabler-outline icon-tabler-users">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                </svg>
+
+                <h3>Idea de proyecto numero 2</h3>
+                <p>Como idea de mi primer proyecto, a parte del portfolio, es hacer una pagina basica para mi primera campana de d&d, donde la info a la que se pueda acceder dependa del GM para mapas, NPCs y cosas generales pero que cada jugador pueda acceder de manera independiente a una lista de hechizos actuales y proximos a aprender, lista de armas, armaduras y estadisticas, calculadoras, simulacion de dados y herramientas variables a cambios.</p>
+            </article>
+
+            <article>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                stroke="currentColor" 
+                stroke-width="1" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                class="icon icon-tabler icons-tabler-outline icon-tabler-building-skyscraper">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 21l18 0" />
+                <path d="M5 21v-14l8 -4v18" />
+                <path d="M19 21v-10l-6 -4" />
+                <path d="M9 9l0 .01" />
+                <path d="M9 12l0 .01" />
+                <path d="M9 15l0 .01" />
+                <path d="M9 18l0 .01" />
+                </svg>
+
+                <h3>Idea de Proyecto numero 3</h3>
+                <p>Idea tentativa de proyecto numero 3; pagina de servicio, pedir servicio desde interfaz cliente, generacion de reporte desde interfaz empresa, leer informe desde interfaz cliente.</p>
+            </article>
+        </footer>
+    </section>
+
+</main>
+
+<!-- EL FOOTER AHORA SI ES LO QUE VA AL FINAL, POR LO GENERAL USADO PARA HIPERVINCULOS DE CONTACTO, INFO DE COPYRIGHT Y ESOS CLASICOS -->
+<footer>
+    <small>&copy; 2026 Alex-Lett. Todos los derechos reservados... creo</small>
+    <nav>
+        <a href="">Terminos de servicio</a>
+        <a href="">Politica de privacidad</a>
+        <a href="mailto:bernier.alejandro99@gmail.com">Contacto</a>
+        <!-- REVISAR EL DE MANDAR MSJ WSP -->
+    </nav>
+</footer>
+
+</body>
+
+</html>

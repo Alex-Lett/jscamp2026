@@ -1,0 +1,7 @@
+8:40:20 / 1:04:14:13
+
+revisar error map (07)
+
+para abrir el entorno de desarrollo: 
+- npm run dev
+- pnpm run dev

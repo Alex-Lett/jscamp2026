@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Portfolio Ale - Empleos</title>
+    <meta charset="UTF-8" >
+    <meta name="description" content="Listado de contenido de busquedas, en este ejemplo empleos.">
+
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./memillo.png">
+
+    <script type="module">
+        import React from "https://esm.sh/react?dev";
+        import ReactDOM from "https://esm.sh/react-dom/client?dev";
+
+        window.React = React
+        window.ReactDOM = ReactDOM
+    </script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        //componente de React
+        function JobCard({ data, titulo, empresa, ubicacion, descripcion}) {
+            const [isApplied, setIsApplied] = React.useState(false)
+
+
+            function handleClick() {
+                setIsApplied(!isApplied)
+            }
+
+            const text = isApplied ? 'Aplicado' : 'Aplicar'
+            const buttonClass = isApplied ? 'isapplied' : '' 
+
+            return(
+                <article 
+                    className="job-listing-card"
+                    data-modalidad={data?.modalidad}
+                    data-nivel={data?.nivel}
+                    data-technology={data?.technology}
+                >
+                    <div>
+                        <h3>{titulo}</h3>
+                        <small>{empresa} - {ubicacion}</small>
+                        <p>{descripcion}</p>
+                    </div>
+                    <button
+                        disabled={isApplied}
+                        className={`button-apply-job ${buttonClass}`}
+                        onClick={handleClick}
+                        >{text}</button>
+                </article>
+            )
+        }
+
+        function App() {
+            return(
+                <div className="jobs-listings">
+                    <JobCard
+                        titulo="Desarrollador/a Frontend React.js"
+                        empresa="Tech Solution"
+                        ubicacion="Remoto"
+                        descripcion="Unete a nuestro equipo como desarrollador/a frontend especializado en React.js. Trabaja en proyectos innovadores y colabora con un equipo dinamico"
+                        data={{ modalidad: "remoto", nivel: "junior", technology: "react" }}
+                    />
+                </div>
+            )
+        }
+
+
+        const rootEl = document.querySelector('#root');
+        const root = ReactDOM.createRoot(rootEl)
+        root.render(<App />)
+    </script>
+
+</head>
+
+<body>
+
+<header class="headerfix">
+    <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-code"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 8l-4 4l4 4" /><path d="M17 8l4 4l-4 4" /><path d="M14 4l-4 16" /></svg>
+        Portfolio - Ale
+    </h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="">Empleos</a>
+        <a href="https://github.com/Alex-Lett" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+
+    <div>
+        <jobs-avatar
+            service="google"
+            username="google.com"
+            size="32">
+        </jobs-avatar>
+    </div>
+</header>
+
+
+<main>
+    <section class="jobs-search">
+        <h1>React.js, primeros pasos.</h1>
+
+    </section>
+        
+    <section>
+        <h2>Empleos Disponibles</h2>
+        <div id="root"></div>
+
+    </section>
+
+
+</main>
+
+
+
+
+<footer style="padding-bottom: 2000px;">
+    <small>&copy; 2026 Alex-Lett. Todos los derechos reservados... creo</small>
+    <nav>
+        <a href="">Terminos de servicio</a>
+        <a href="">Politica de privacidad</a>
+        <a href="mailto:bernier.alejandro99@gmail.com">Contacto</a>
+        <!-- REVISAR EL DE MANDAR MSJ WSP -->
+    </nav>
+</footer>
+
+
+</body>
+
+</html>

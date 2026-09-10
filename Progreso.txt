@@ -5,3 +5,8 @@ revisar error map (07)
 para abrir el entorno de desarrollo: 
 - npm run dev
 - pnpm run dev
+
+q para cerrar
+h para ayuda
+r para restart
+--host para hostear en red local

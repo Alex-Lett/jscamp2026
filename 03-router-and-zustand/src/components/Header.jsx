@@ -1,20 +1,58 @@
-import {Link} from "./Link"
+import { NavLink } from 'react-router'
+import { Link } from './Link'
+import { useAuthStore } from '../store/authStore'
+import { useFavoritesStore } from '../store/favoritesStore'
 
-export function Header() {
-    return(
-        <header className="headerfix">
-            <Link href="/" style={{textDecoration:'none'}}>
-                <h1 style={{color:'white'}}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-code"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 8l-4 4l4 4" /><path d="M17 8l4 4l-4 4" /><path d="M14 4l-4 16" /></svg>
-                    Portfolio - Ale
-                </h1>
-            </Link>
-            <nav>
-                <Link href="/">Inicio</Link>
-                <Link href="/search">Empleos</Link>
-                <a href="https://github.com/Alex-Lett" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </nav>
-        </header>
+export function Header () {
+  const { isLoggedIn } = useAuthStore()
+  const { countFavorites } = useFavoritesStore()
 
-    )
+  const numberOfFavorites = countFavorites()
+
+  return (
+    <header>
+      <Link href='/' style={{ textDecoration: 'none' }}>
+        <h1 style={{ color: 'white' }}>
+            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            DevJobs
+        </h1>
+      </Link>
+
+      <nav>
+        <NavLink
+          className={({ isActive }) => isActive ? 'nav-link-active' : ''}
+          to="/search">Empleos</NavLink>
+          {
+            isLoggedIn && (
+              <NavLink
+                className={({ isActive }) => isActive ? 'nav-link-active' : ''}
+                to="/profile">
+                  Profile ❤️ {numberOfFavorites}
+              </NavLink>
+            )
+          }
+      </nav>
+
+      <HeaderUserButton />
+
+    </header>
+  )
+}
+
+const HeaderUserButton = () => {
+  const { isLoggedIn, login, logout } = useAuthStore()
+  const { clearFavorites } = useFavoritesStore()
+
+  const handleLogout = () => {
+    logout()
+    clearFavorites()
+  }
+
+  return isLoggedIn
+    ? <button onClick={handleLogout}>Cerrar sesión</button>
+    : <button onClick={login}>Iniciar sesión</button>
 }

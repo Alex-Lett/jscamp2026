@@ -1,4 +1,4 @@
-10:09:29 / 1:04:14:13
+14:35:58 / 1:04:14:13
 
 revisar error map (07)
 
@@ -10,3 +10,10 @@ q para cerrar
 h para ayuda
 r para restart
 --host para hostear en red local
+
+
+ojo comando para servidor de node
+node --watch server.js
+
+catalogo de status con gatos en 
+http.cat

@@ -53,15 +53,29 @@ app.get('/jobs', (req, res) => {
 app.get('/jobs/:id', (req, res) => {
     const { id } = req.params
 
-    const idNumber = Number(id)
+    const job = jobs.find(job => job.id === id)
 
-    return res.json({
-        job: { id: idNumber, title: `Job with id ${id}`}
-    })
+    if (!job) {
+        return res.status(404).json({ error: 'Job not found'})
+    }
+
+    return res.json(job)
 })
 
 app.post('/jobs', (req, res) => {
-    //TODO
+    const { titulo, empresa, ubicacion, data } = req.query
+
+    const newJob = {
+        id: crypto.randomUUID(),
+        titulo,
+        empresa,
+        ubicacion,
+        data,
+    }
+
+    jobs.push(newJob) // Futuro, base de datos con un INSERT
+
+    return res.status(201).json(newJob) 
 })
 
 // Para reemplazar un recurso completo

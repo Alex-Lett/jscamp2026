@@ -1,0 +1,13 @@
+import { Router, router } from 'express'
+import { JobController } from '../controllers/jobs'
+
+export const jobsRouter = Router()
+
+jobsRouter.get('/', JobController.getAll)
+jobsRouter.get('/:id', JobController.getId)
+jobsRouter.post('/', JobController.create)
+// Para reemplazar un recurso completo
+jobsRouter.put('/:id', JobController.update)
+// Actualizar parcialmente un recurso
+jobsRouter.patch('/:id', JobController.partialUpdate)
+jobsRouter.delete('/:id', JobController.delete)

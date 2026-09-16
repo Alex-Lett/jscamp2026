@@ -1,9 +1,28 @@
 import express from 'express'
+import cors from 'cors'
 import jobs from './jobs.json' with { type: 'json' }
 import { DEFAULTS } from './config.js'
 
 const PORT = process.env.PORT ?? DEFAULTS.PORT
 const app = express()
+
+const ACCEPTED_ORIGINS = [
+    'http://localhost:3000',
+    'http://localhost:5173'
+]
+
+app.use(
+    cors({
+        origin: (origin, callback) => {
+            if (ACCEPTED_ORIGINS.includes(origin)) {
+                return callback(null, true)
+            }
+            return callback(new Error("Origen no permitido"))
+        }
+    })
+)
+
+app.use(express.json())
 
 app.use((req, res, next) => {
     const timeString = new Date().toLocaleTimeString()
@@ -47,7 +66,7 @@ app.get('/jobs', (req, res) => {
 
     const paginatedJobs = filteredJobs.slice(offsetNumber, offsetNumber + limitNumber)
 
-    return res.json(paginatedJobs)
+    return res.json({data: paginatedJobs, total: filteredJobs.length, limit:limitNumber, offset: offsetNumber })
 })
 
 app.get('/jobs/:id', (req, res) => {

@@ -1,6 +1,6 @@
 import { test, describe, before, after } from 'node:test'
 import assert from 'node:assert'
-import { app } from './app.js'
+import  app  from './app.js'
 
 let server
 const PORT = 3456
